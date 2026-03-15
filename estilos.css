@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+
+:root {
+    --color-fondo: #050505;
+    --fondo-cristal: rgba(25, 25, 25, 0.4);
+    --borde-cristal: rgba(255, 255, 255, 0.08);
+    --color-acento: #0dcaf0;
+    --texto-principal: #ffffff;
+    --texto-secundario: #a0a0a0;
+}
+
+body.tema-oscuro {
+    background-color: var(--color-fondo);
+    color: var(--texto-principal);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Personalizado */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-fondo); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-acento); }
+
+/* Efecto Cristal (Glassmorphism) */
+.nav-cristal, .tarjeta-cristal {
+    background: var(--fondo-cristal);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--borde-cristal);
+}
+
+.nav-cristal {
+    border-bottom: 1px solid var(--borde-cristal);
+    border-top: none; border-left: none; border-right: none;
+}
+
+.tarjeta-cristal {
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Tipografía y Textos */
+.texto-degradado {
+    background: linear-gradient(45deg, #fff, var(--color-acento));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.espaciado-amplio { letter-spacing: 0.15em; }
+.texto-tenue { color: var(--texto-secundario); }
+
+/* Enlaces de navegación */
+.efecto-subrayado {
+    position: relative;
+    color: var(--texto-principal) !important;
+}
+.efecto-subrayado::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: 0; left: 0; background-color: var(--color-acento);
+    transition: width 0.3s ease;
+}
+.efecto-subrayado:hover::after { width: 100%; }
+
+/* Sección Principal y Fondo Parallax */
+.seccion-hero { height: 100vh; position: relative; }
+.fondo-parallax {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; 
+    background-attachment: fixed; /* Efecto Parallax */
+    filter: brightness(0.4);
+}
+.superposicion { position: relative; height: 100%; z-index: 2; }
+
+/* Animaciones al hacer Scroll */
+.animacion-scroll {
+    opacity: 0; transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animacion-scroll.visible { opacity: 1; transform: translateY(0); }
+
+/* Diseño Decorativo (Mancha detrás de la biografía) */
+.mancha-decorativa {
+    position: absolute; top: -50px; left: -50px;
+    width: 300px; height: 300px;
+    background: linear-gradient(45deg, rgba(13, 202, 240, 0.2), rgba(0, 0, 0, 0));
+    border-radius: 50%; filter: blur(40px); z-index: 0;
+}
+.capa-superior { position: relative; z-index: 2; }
+
+/* Efectos de Imagen */
+.efecto-escala { transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.efecto-escala:hover { transform: scale(1.03) rotate(1deg); }
+.sombra-personalizada { box-shadow: 20px 20px 50px rgba(0,0,0,0.5); }
+
+/* --- Estilos del Footer --- */
+.footer-cristal {
+    background: var(--fondo-cristal);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--borde-cristal);
+}
+
+.final-footer {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
